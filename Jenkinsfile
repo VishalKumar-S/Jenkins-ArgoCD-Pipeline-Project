@@ -27,11 +27,12 @@ pipeline {
             }
         }
 
-        stage('Push the artifacts'){
-           steps{
-                script{
+      stage('Push the artifacts') {
+            steps {
+                script {
                     sh '''
                     echo 'Push to Repo'
+                    docker login -u vishalkumars -p dq3pQM7KGC4rYbw
                     docker push vishalkumars/cicd-e2e:${BUILD_NUMBER}
                     '''
                 }
